@@ -25,6 +25,7 @@ class FirestoreClient:
     def set_document(self, collection_id, document_id, data):
         self.db_client.collection(collection_id).document(document_id).set(data, merge=True)
 
+
 # db = FirestoreClient()
 # to_wright = {
 #     'lesson': 'math'

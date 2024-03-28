@@ -48,6 +48,7 @@ def get_keyboard(keyboard_name: str):
     return keyboard
 
 
+
 @bot.message_handler(commands=['help', 'start'])
 def send_welcome(message: Message):
     bot.send_message(message.chat.id, f'Привет, {message.from_user.username}', reply_markup=get_keyboard('main') )
