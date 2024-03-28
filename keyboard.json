@@ -1,0 +1,130 @@
+[
+  {
+    "keyboard_name": "main",
+    "buttons": [
+      {
+        "id": "1",
+        "name": "Замена жидкостей и фильтров",
+        "to_print": "Замена жидкостей и фильтров",
+        "next_keyboard": "fluids_and_filters"
+      },
+      {
+        "id": "2",
+        "name": "Ходовая часть",
+        "to_print": "Обслуживание ходовой части",
+        "next_keyboard": "chassis"
+      },
+      {
+        "id": "3",
+        "name": "Двигатель",
+        "to_print": "Ремонт и обслуживание двигателя",
+        "next_keyboard": "engine"
+      }
+    ]
+  },
+  {
+    "keyboard_name": "fluids_and_filters",
+    "buttons": [
+      {
+        "id": "101",
+        "name": "Замена воздушного фильтра",
+        "to_print": "Замена воздушного фильтра",
+        "price": "10",
+        "size": "За штуку",
+        "next_keyboard": "fluids_and_filters"
+      },
+      {
+        "id": "102",
+        "name": "Замена охлаждающей жидкости",
+        "price": "35",
+        "size": "За услугу",
+        "to_print": "Замена охлаждающей жидкости",
+        "next_keyboard": "fluids_and_filters"
+      },
+      {
+        "id": "103",
+        "name": "Замена тормозной жидкости",
+        "price": "31",
+        "size": "За услугу",
+        "to_print": "Замена тормозной жидкости",
+        "next_keyboard": "fluids_and_filters"
+      },
+      {
+        "id": "199",
+        "name": "Домой",
+        "to_print": "Вы вернулись в главное меню",
+        "next_keyboard": "main"
+      }
+    ]
+  },
+  {
+    "keyboard_name": "chassis",
+    "buttons": [
+      {
+        "id": "201",
+        "name": "Диагностика ходовой части",
+        "to_print": "Диагностика ходовой части",
+        "price": "10",
+        "size": "За штуку",
+        "next_keyboard": "chassis"
+      },
+      {
+        "id": "202",
+        "name": "Замена охлаждающей жидкости",
+        "price": "35",
+        "size": "За услугу",
+        "to_print": "Замена охлаждающей жидкости",
+        "next_keyboard": "chassis"
+      },
+      {
+        "id": "203",
+        "name": "Замена тормозной жидкости",
+        "price": "31",
+        "size": "За услугу",
+        "to_print": "Замена тормозной жидкости",
+        "next_keyboard": "chassis"
+      },
+      {
+        "id": "299",
+        "name": "Домой",
+        "to_print": "Вы вернулись в главное меню",
+        "next_keyboard": "main"
+      }
+    ]
+  },
+  {
+    "keyboard_name": "engine",
+    "buttons": [
+      {
+        "id": "301",
+        "name": "Диагностика ДВС",
+        "to_print": "Диагностика ДВС и электронных систем",
+        "price": "55",
+        "size": "За услугу",
+        "next_keyboard": "engine"
+      },
+      {
+        "id": "302",
+        "name": "Прочистка дроссельной заслонки",
+        "price": "35",
+        "size": "За услугу",
+        "to_print": "Прочистка дроссельной заслонки - ДВС до 2.4 л",
+        "next_keyboard": "engine"
+      },
+      {
+        "id": "303",
+        "name": "Прочистка форсунок",
+        "price": "59",
+        "size": "За услугу",
+        "to_print": "Аппаратная прочистка форсунок - ДВС до 2.4 л",
+        "next_keyboard": "engine"
+      },
+      {
+        "id": "399",
+        "name": "Домой",
+        "to_print": "Вы вернулись в главное меню",
+        "next_keyboard": "main"
+      }
+    ]
+  }
+]
