@@ -1,7 +1,11 @@
 import json
+from pprint import pprint
+
 from environs import Env
 import telebot
 from telebot.types import Message, CallbackQuery, InlineKeyboardMarkup, InlineKeyboardButton
+
+from database import FirestoreClient, db
 
 env = Env()
 env.read_env()
@@ -9,6 +13,11 @@ env.read_env()
 API_TOKEN = env('API_TOKEN')
 
 bot = telebot.TeleBot(API_TOKEN)
+
+@staticmethod
+def get_config():
+    config_data = db.get_collection('keyboard_name')
+    return config_data
 
 def generate_message(button):
     msg = ''
@@ -23,22 +32,22 @@ def generate_message(button):
         msg += f'<b>Цена: {button['price']} BYN</b>'
 
     return msg
-def get_all_buttons():
-    with open('keyboard.json', encoding='utf-8') as menu_config:
-        config_data = json.load(menu_config)
 
+
+def get_all_buttons():
+    config_data = db.get_collection('keyboard_name')
     all_buttons = []
+
     for keyboard in config_data:
         for button in keyboard['buttons']:
             all_buttons.append(button)
-
     return all_buttons
 
-def get_keyboard(keyboard_name: str):
-    with open('keyboard.json', encoding='utf-8') as menu_config:
-        config_data = json.load(menu_config)
 
-    actual_keyboard = list(filter(lambda el: el ['keyboard_name'] == keyboard_name, config_data))[0]
+def get_keyboard(keyboard_name: str):
+    config_data = db.get_collection('keyboard_name')
+
+    actual_keyboard = list(filter(lambda el: el['keyboard_name'] == keyboard_name, config_data))[0]
     keyboard = InlineKeyboardMarkup()
     buttons = sorted(actual_keyboard['buttons'], key=lambda el: int(el['id']))
 
@@ -46,7 +55,6 @@ def get_keyboard(keyboard_name: str):
         keyboard.add(InlineKeyboardButton(button['name'], callback_data=button['id']))
 
     return keyboard
-
 
 
 @bot.message_handler(commands=['help', 'start'])
