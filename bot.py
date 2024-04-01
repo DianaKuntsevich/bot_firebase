@@ -14,10 +14,6 @@ API_TOKEN = env('API_TOKEN')
 
 bot = telebot.TeleBot(API_TOKEN)
 
-@staticmethod
-def get_config():
-    config_data = db.get_collection('keyboard_name')
-    return config_data
 
 def generate_message(button):
     msg = ''
