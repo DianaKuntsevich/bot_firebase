@@ -1,11 +1,11 @@
-import json
-from pprint import pprint
+
 
 from environs import Env
 import telebot
 from telebot.types import Message, CallbackQuery, InlineKeyboardMarkup, InlineKeyboardButton
 
-from database import FirestoreClient, db
+from database import db
+from datetime import datetime, timezone, timedelta
 
 env = Env()
 env.read_env()
@@ -55,7 +55,32 @@ def get_keyboard(keyboard_name: str):
 
 @bot.message_handler(commands=['help', 'start'])
 def send_welcome(message: Message):
-    bot.send_message(message.chat.id, f'Привет, {message.from_user.username}', reply_markup=get_keyboard('main') )
+    bot.send_message(message.chat.id, f'Привет, {message.from_user.username}', reply_markup=get_keyboard('main'))
+
+
+# @bot.message_handler(content_types=['text'])
+# def wright_message(message: Message):
+#     # now = datetime.now(timezone.utc) #получаем дату и время
+#     # date = now.date() # получаем просто дату
+#     counter = 0
+#     while counter < 1000:
+#         to_wright = {
+#         "from_user_id": str(message.from_user.id),
+#         "from_user_name": str(message.from_user.username),
+#         "text": str(message.text)
+#
+#         }
+#         count = 0
+#         while count < counter:
+#             db.set_document('messages', f'bot{str(count)}', to_wright)
+#             count += 1
+#         counter += 1
+
+
+
+
+
+
 
 
 # Handle all other messages with content_type 'text' (content_types defaults to ['text'])
@@ -77,3 +102,7 @@ def common_button(call: CallbackQuery):
 
 
 bot.infinity_polling()
+
+
+
+
